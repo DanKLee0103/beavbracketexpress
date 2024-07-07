@@ -1,0 +1,78 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.App-header {
+  background-color: orangered;
+  /* min-height: 100vh; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  text-decoration-style: none;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+#navreq{
+  color: orange;
+  text-decoration: none;
+  text-decoration-style: none;
+}
+
+#tournaments{
+  text-decoration-style: none;
+  list-style-type: none;
+  text-decoration: none;
+}
+
+#edittournaments{
+  padding-right: 10px;
+  text-decoration: none;
+}
+
+#editforms{
+  padding-right: 10px;
+}
+
+#bracket{
+  position: relative;
+  display: inline-block;
+  /* text-align: center; */
+  /* align-items: center; */
+}
+
+/*This is for the editform for the bracket*/
+#bracketform{
+  max-width: min-content;
+  text-align: center;
+  display: inline-block;
+}
+
+/*This is for the editform for the bracket*/
+.formwrapper {
+  position: relative;
+  display: inline-block;
+}
+
+/*For the x-symbol on top right of the form*/
+.close {
+    float:right;
+    size: 50px;
+    color: #909090;
+    text-decoration: none;
+}
+
+/*For the x-symbol on top right of the form*/
+.close:hover{
+    color: #686868;
+}
+

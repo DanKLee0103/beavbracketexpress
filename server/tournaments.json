@@ -1,0 +1,71 @@
+[
+  {
+    "id": "bb5e0685-c4cb-409c-81fd-8ff5a5ae0efc",
+    "name": "test",
+    "startDate": "2004-01-03",
+    "endDate": "2004-01-04",
+    "numRounds": "3",
+    "bracket": {
+      "rounds": [
+        {
+          "name": "Round 1"
+        },
+        {
+          "name": "Round 2"
+        },
+        {
+          "name": "Round 3"
+        }
+      ],
+      "matches": [],
+      "contestants": {}
+    }
+  },
+  {
+    "id": "9534f56e-c2b2-4b37-a7e4-e4fd24359f5a",
+    "name": "tester",
+    "startDate": "2004-01-03",
+    "endDate": "2004-01-04",
+    "numRounds": "3",
+    "bracket": {
+      "rounds": [
+        {
+          "name": "Round 1"
+        },
+        {
+          "name": "Round 2"
+        },
+        {
+          "name": "Round 3"
+        }
+      ],
+      "matches": [],
+      "contestants": {}
+    }
+  },
+  {
+    "id": "65954a9f-d78a-46ad-8373-f03be8e3152d",
+    "name": "hi",
+    "startDate": "2004-01-03",
+    "endDate": "2004-01-04",
+    "numRounds": "4",
+    "bracket": {
+      "rounds": [
+        {
+          "name": "Round 1"
+        },
+        {
+          "name": "Round 2"
+        },
+        {
+          "name": "Round 3"
+        },
+        {
+          "name": "Round 4"
+        }
+      ],
+      "matches": [],
+      "contestants": {}
+    }
+  }
+]
