@@ -1,43 +1,60 @@
-import { createBracket } from 'bracketry'; // Assuming bracketry has an update function
-import '../App.css';
-import React, { useEffect, useRef, useState } from 'react';
-import BracketForm from './bracketform';
-import Editjoin from '../admin/editjoin';
+import React, { useRef, useState, useEffect } from 'react';
+import { createBracket } from 'bracketry';
+import BracketForm from './bracketform'; 
 
-//MAKE A DEFAULT BRACKET (just make the number of rounds changeable inside the bracket page actually let's make a form for)
 const MakeBracket = ({ data, onUpdate }) => {
-  //want to use a reference not the actual bracket
-  const bracketref = useRef();
+  const bracketRef = useRef(null);
   const [selectedMatch, setSelectedMatch] = useState(null);
+
   useEffect(() => {
-    if (bracketref.current && data) {
+    if (bracketRef.current && data) {
       //Clear existing content to avoid duplicate brackets
-      bracketref.current.innerHTML = '';
+      while (bracketRef.current.firstChild) {
+        bracketRef.current.removeChild(bracketRef.current.firstChild);
+      }
+
+      // got rid of innerHtml method causing DOM issues and now using a more
+      // original approach above
 
       const options = {
         onMatchClick: (match) => {
           setSelectedMatch(match);
         },
-      }
-      //Create or update the bracket
-      createBracket(data, bracketref.current, { ...options, useClassicalLayout: true });//decide if i want to use classical layout later
+      };
 
+      // Create or update the bracket
+      createBracket(data, bracketRef.current, { ...options, useClassicalLayout: true });
     }
   }, [data]);
 
-  const handleSubmit = (newData) => {
+  const matchContestants = selectedMatch
+    ? {
+        contestant1: data.contestants[selectedMatch.sides[0].contestantId].players[0].title,
+        contestant2: data.contestants[selectedMatch.sides[1].contestantId].players[0].title,
+      }
+    : null;
+
+  const handleSubmit = (updatedMatch) => {
+    const newData = { ...data };
+    newData.matches = newData.matches.map((match) =>
+      match.roundIndex === updatedMatch.roundIndex && match.order === updatedMatch.order ? updatedMatch : match
+    );
     onUpdate(newData);
-    setSelectedMatch(null); //Close the form after submission
+    setSelectedMatch(null);
+  };
+
+  const handleClose = () => {
+    setSelectedMatch(null); // closes the modal
   };
 
   return (
-    <div ref={bracketref} id="bracket">
-      {selectedMatch && <BracketForm onSubmit={handleSubmit}/>}
+    <div>
+      <div ref={bracketRef} id="bracket" />
+      {selectedMatch && <BracketForm contestants = {matchContestants} match={selectedMatch} onSubmit={handleSubmit} onClose = {handleClose}/>}
       <form>
-        {/* create a form to change number of rounds*/}
+        {/* Create a form to change the number of rounds */}
       </form>
     </div>
-
   );
 };
 

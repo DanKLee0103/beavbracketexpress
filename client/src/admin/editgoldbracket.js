@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import useSWR, { mutate } from 'swr';
 import MakeBracket from '../components/bracket';
+import Tourtabs from '../components/tourtabs';
+// import '../components/tab.css';
 
 const fetcher = (url) => fetch(url).then((res) => {
   if (!res.ok) {
@@ -10,7 +12,7 @@ const fetcher = (url) => fetch(url).then((res) => {
   return res.json();
 });
 
-function Edittour() {
+function EditGoldBracket() {
   const { id } = useParams();
   const { data: tournament, error: tournamentError } = useSWR(`/api/tournaments/${id}`, fetcher);
   const [errorMessage, setErrorMessage] = useState('');
@@ -22,7 +24,7 @@ function Edittour() {
     try {
       const updatedTournament = {
         ...tournament,
-        bracket: newData
+        goldBracket: newData
       };
 
       const response = await fetch(`/api/tournaments/${id}`, {
@@ -44,11 +46,12 @@ function Edittour() {
 
   return (
     <div>
-      <h1>{tournament.name}</h1>
-      {tournament.bracket && <MakeBracket data={tournament.bracket} onUpdate={updateBracketData} />}
+      <h1>{tournament.name} - Gold Bracket</h1>
+      {tournament.goldBracket && <MakeBracket data={tournament.goldBracket} onUpdate={updateBracketData} />}
       {errorMessage && <div className="error">{errorMessage}</div>}
+      <Tourtabs/>
     </div>
   );
 }
 
-export default Edittour;
+export default EditGoldBracket;

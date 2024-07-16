@@ -32,11 +32,14 @@
   text-decoration-style: none;
   list-style-type: none;
   text-decoration: none;
+  /* position: relative;
+  flex: auto; */
 }
 
 #edittournaments{
   padding-right: 10px;
   text-decoration: none;
+  text-align: center;
 }
 
 #editforms{

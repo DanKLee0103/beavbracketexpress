@@ -1,71 +1,1280 @@
 [
   {
-    "id": "bb5e0685-c4cb-409c-81fd-8ff5a5ae0efc",
-    "name": "test",
-    "startDate": "2004-01-03",
-    "endDate": "2004-01-04",
+    "id": "a383a6fc-0074-4670-ab43-23d7d7bc3fc4",
+    "name": "new",
+    "startDate": "0003-01-23",
+    "endDate": "0004-01-23",
     "numRounds": "3",
-    "bracket": {
+    "bronzeBracket": {
       "rounds": [
         {
-          "name": "Round 1"
+          "name": "Quarterfinal"
         },
         {
-          "name": "Round 2"
+          "name": "Semifinal"
         },
         {
-          "name": "Round 3"
+          "name": "Final"
         }
       ],
-      "matches": [],
-      "contestants": {}
-    }
-  },
-  {
-    "id": "9534f56e-c2b2-4b37-a7e4-e4fd24359f5a",
-    "name": "tester",
-    "startDate": "2004-01-03",
-    "endDate": "2004-01-04",
-    "numRounds": "3",
-    "bracket": {
+      "matches": [
+        {
+          "roundIndex": 0,
+          "order": 0,
+          "sides": [
+            {
+              "contestantId": "1",
+              "contestantName": "OSU A",
+              "scores": [
+                {
+                  "mainScore": "1",
+                  "isWinner": true
+                },
+                {
+                  "mainScore": "6",
+                  "isWinner": true
+                },
+                {
+                  "mainScore": "6",
+                  "isWinner": true
+                }
+              ],
+              "isWinner": true
+            },
+            {
+              "contestantId": "2",
+              "contestantName": "OSU B",
+              "scores": [
+                {
+                  "mainScore": "6",
+                  "isWinner": false
+                },
+                {
+                  "mainScore": "3",
+                  "isWinner": false
+                },
+                {
+                  "mainScore": "3",
+                  "isWinner": false
+                }
+              ],
+              "isWinner": false
+            }
+          ]
+        },
+        {
+          "roundIndex": 0,
+          "order": 1,
+          "sides": [
+            {
+              "contestantId": "3",
+              "scores": [
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                },
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                },
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                }
+              ],
+              "isWinner": false
+            },
+            {
+              "contestantId": "4",
+              "scores": [
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                },
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                },
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                }
+              ],
+              "isWinner": false
+            }
+          ]
+        },
+        {
+          "roundIndex": 0,
+          "order": 2,
+          "sides": [
+            {
+              "contestantId": "5",
+              "scores": [
+                {
+                  "mainScore": "1",
+                  "isWinner": false
+                },
+                {
+                  "mainScore": "2",
+                  "isWinner": false
+                },
+                {
+                  "mainScore": "-",
+                  "isWinner": false
+                }
+              ],
+              "isWinner": false
+            },
+            {
+              "contestantId": "6",
+              "scores": [
+                {
+                  "mainScore": "6",
+                  "isWinner": true
+                },
+                {
+                  "mainScore": "6",
+                  "isWinner": true
+                },
+                {
+                  "mainScore": "-",
+                  "isWinner": true
+                }
+              ],
+              "isWinner": true
+            }
+          ]
+        },
+        {
+          "roundIndex": 0,
+          "order": 3,
+          "sides": [
+            {
+              "contestantId": "7",
+              "scores": [
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                },
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                },
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                }
+              ],
+              "isWinner": false
+            },
+            {
+              "contestantId": "8",
+              "scores": [
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                },
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                },
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                }
+              ],
+              "isWinner": false
+            }
+          ]
+        },
+        {
+          "roundIndex": 1,
+          "order": 0,
+          "sides": [
+            {
+              "contestantId": "9",
+              "scores": [
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                },
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                },
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                }
+              ],
+              "isWinner": false
+            },
+            {
+              "contestantId": "10",
+              "scores": [
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                },
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                },
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                }
+              ],
+              "isWinner": false
+            }
+          ]
+        },
+        {
+          "roundIndex": 1,
+          "order": 1,
+          "sides": [
+            {
+              "contestantId": "11",
+              "scores": [
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                },
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                },
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                }
+              ],
+              "isWinner": false
+            },
+            {
+              "contestantId": "12",
+              "scores": [
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                },
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                },
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                }
+              ],
+              "isWinner": false
+            }
+          ]
+        },
+        {
+          "roundIndex": 2,
+          "order": 0,
+          "sides": [
+            {
+              "contestantId": "13",
+              "scores": [
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                },
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                },
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                }
+              ],
+              "isWinner": false
+            },
+            {
+              "contestantId": "14",
+              "scores": [
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                },
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                },
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                }
+              ],
+              "isWinner": false
+            }
+          ]
+        }
+      ],
+      "contestants": {
+        "1": {
+          "entryStatus": "TBD",
+          "players": [
+            {
+              "title": "Player 1"
+            }
+          ]
+        },
+        "2": {
+          "entryStatus": "TBD",
+          "players": [
+            {
+              "title": "Player 2"
+            }
+          ]
+        },
+        "3": {
+          "entryStatus": "TBD",
+          "players": [
+            {
+              "title": "Player 3"
+            }
+          ]
+        },
+        "4": {
+          "entryStatus": "TBD",
+          "players": [
+            {
+              "title": "Player 4"
+            }
+          ]
+        },
+        "5": {
+          "entryStatus": "TBD",
+          "players": [
+            {
+              "title": "Player 5"
+            }
+          ]
+        },
+        "6": {
+          "entryStatus": "TBD",
+          "players": [
+            {
+              "title": "Player 6"
+            }
+          ]
+        },
+        "7": {
+          "entryStatus": "TBD",
+          "players": [
+            {
+              "title": "Player 7"
+            }
+          ]
+        },
+        "8": {
+          "entryStatus": "TBD",
+          "players": [
+            {
+              "title": "Player 8"
+            }
+          ]
+        },
+        "9": {
+          "entryStatus": "TBD",
+          "players": [
+            {
+              "title": "Winner TBD"
+            }
+          ]
+        },
+        "10": {
+          "entryStatus": "TBD",
+          "players": [
+            {
+              "title": "Winner TBD"
+            }
+          ]
+        },
+        "11": {
+          "entryStatus": "TBD",
+          "players": [
+            {
+              "title": "Winner TBD"
+            }
+          ]
+        },
+        "12": {
+          "entryStatus": "TBD",
+          "players": [
+            {
+              "title": "Winner TBD"
+            }
+          ]
+        },
+        "13": {
+          "entryStatus": "TBD",
+          "players": [
+            {
+              "title": "Winner TBD"
+            }
+          ]
+        },
+        "14": {
+          "entryStatus": "TBD",
+          "players": [
+            {
+              "title": "Winner TBD"
+            }
+          ]
+        }
+      }
+    },
+    "silverBracket": {
       "rounds": [
         {
-          "name": "Round 1"
+          "name": "Quarterfinal"
         },
         {
-          "name": "Round 2"
+          "name": "Semifinal"
         },
         {
-          "name": "Round 3"
+          "name": "Final"
         }
       ],
-      "matches": [],
-      "contestants": {}
-    }
-  },
-  {
-    "id": "65954a9f-d78a-46ad-8373-f03be8e3152d",
-    "name": "hi",
-    "startDate": "2004-01-03",
-    "endDate": "2004-01-04",
-    "numRounds": "4",
-    "bracket": {
+      "matches": [
+        {
+          "roundIndex": 0,
+          "order": 0,
+          "sides": [
+            {
+              "contestantId": "1",
+              "scores": [
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                },
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                },
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                }
+              ],
+              "isWinner": false
+            },
+            {
+              "contestantId": "2",
+              "scores": [
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                },
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                },
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                }
+              ],
+              "isWinner": false
+            }
+          ]
+        },
+        {
+          "roundIndex": 0,
+          "order": 1,
+          "sides": [
+            {
+              "contestantId": "3",
+              "scores": [
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                },
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                },
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                }
+              ],
+              "isWinner": false
+            },
+            {
+              "contestantId": "4",
+              "scores": [
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                },
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                },
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                }
+              ],
+              "isWinner": false
+            }
+          ]
+        },
+        {
+          "roundIndex": 0,
+          "order": 2,
+          "sides": [
+            {
+              "contestantId": "5",
+              "scores": [
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                },
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                },
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                }
+              ],
+              "isWinner": false
+            },
+            {
+              "contestantId": "6",
+              "scores": [
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                },
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                },
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                }
+              ],
+              "isWinner": false
+            }
+          ]
+        },
+        {
+          "roundIndex": 0,
+          "order": 3,
+          "sides": [
+            {
+              "contestantId": "7",
+              "scores": [
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                },
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                },
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                }
+              ],
+              "isWinner": false
+            },
+            {
+              "contestantId": "8",
+              "scores": [
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                },
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                },
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                }
+              ],
+              "isWinner": false
+            }
+          ]
+        },
+        {
+          "roundIndex": 1,
+          "order": 0,
+          "sides": [
+            {
+              "contestantId": "9",
+              "scores": [
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                },
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                },
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                }
+              ],
+              "isWinner": false
+            },
+            {
+              "contestantId": "10",
+              "scores": [
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                },
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                },
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                }
+              ],
+              "isWinner": false
+            }
+          ]
+        },
+        {
+          "roundIndex": 1,
+          "order": 1,
+          "sides": [
+            {
+              "contestantId": "11",
+              "scores": [
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                },
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                },
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                }
+              ],
+              "isWinner": false
+            },
+            {
+              "contestantId": "12",
+              "scores": [
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                },
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                },
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                }
+              ],
+              "isWinner": false
+            }
+          ]
+        },
+        {
+          "roundIndex": 2,
+          "order": 0,
+          "sides": [
+            {
+              "contestantId": "13",
+              "scores": [
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                },
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                },
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                }
+              ],
+              "isWinner": false
+            },
+            {
+              "contestantId": "14",
+              "scores": [
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                },
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                },
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                }
+              ],
+              "isWinner": false
+            }
+          ]
+        }
+      ],
+      "contestants": {
+        "1": {
+          "entryStatus": "TBD",
+          "players": [
+            {
+              "title": "Player 1"
+            }
+          ]
+        },
+        "2": {
+          "entryStatus": "TBD",
+          "players": [
+            {
+              "title": "Player 2"
+            }
+          ]
+        },
+        "3": {
+          "entryStatus": "TBD",
+          "players": [
+            {
+              "title": "Player 3"
+            }
+          ]
+        },
+        "4": {
+          "entryStatus": "TBD",
+          "players": [
+            {
+              "title": "Player 4"
+            }
+          ]
+        },
+        "5": {
+          "entryStatus": "TBD",
+          "players": [
+            {
+              "title": "Player 5"
+            }
+          ]
+        },
+        "6": {
+          "entryStatus": "TBD",
+          "players": [
+            {
+              "title": "Player 6"
+            }
+          ]
+        },
+        "7": {
+          "entryStatus": "TBD",
+          "players": [
+            {
+              "title": "Player 7"
+            }
+          ]
+        },
+        "8": {
+          "entryStatus": "TBD",
+          "players": [
+            {
+              "title": "Player 8"
+            }
+          ]
+        },
+        "9": {
+          "entryStatus": "TBD",
+          "players": [
+            {
+              "title": "Winner TBD"
+            }
+          ]
+        },
+        "10": {
+          "entryStatus": "TBD",
+          "players": [
+            {
+              "title": "Winner TBD"
+            }
+          ]
+        },
+        "11": {
+          "entryStatus": "TBD",
+          "players": [
+            {
+              "title": "Winner TBD"
+            }
+          ]
+        },
+        "12": {
+          "entryStatus": "TBD",
+          "players": [
+            {
+              "title": "Winner TBD"
+            }
+          ]
+        },
+        "13": {
+          "entryStatus": "TBD",
+          "players": [
+            {
+              "title": "Winner TBD"
+            }
+          ]
+        },
+        "14": {
+          "entryStatus": "TBD",
+          "players": [
+            {
+              "title": "Winner TBD"
+            }
+          ]
+        }
+      }
+    },
+    "goldBracket": {
       "rounds": [
         {
-          "name": "Round 1"
+          "name": "Quarterfinal"
         },
         {
-          "name": "Round 2"
+          "name": "Semifinal"
         },
         {
-          "name": "Round 3"
-        },
-        {
-          "name": "Round 4"
+          "name": "Final"
         }
       ],
-      "matches": [],
-      "contestants": {}
+      "matches": [
+        {
+          "roundIndex": 0,
+          "order": 0,
+          "sides": [
+            {
+              "contestantId": "1",
+              "scores": [
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                },
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                },
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                }
+              ],
+              "isWinner": false
+            },
+            {
+              "contestantId": "2",
+              "scores": [
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                },
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                },
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                }
+              ],
+              "isWinner": false
+            }
+          ]
+        },
+        {
+          "roundIndex": 0,
+          "order": 1,
+          "sides": [
+            {
+              "contestantId": "3",
+              "scores": [
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                },
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                },
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                }
+              ],
+              "isWinner": false
+            },
+            {
+              "contestantId": "4",
+              "scores": [
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                },
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                },
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                }
+              ],
+              "isWinner": false
+            }
+          ]
+        },
+        {
+          "roundIndex": 0,
+          "order": 2,
+          "sides": [
+            {
+              "contestantId": "5",
+              "scores": [
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                },
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                },
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                }
+              ],
+              "isWinner": false
+            },
+            {
+              "contestantId": "6",
+              "scores": [
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                },
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                },
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                }
+              ],
+              "isWinner": false
+            }
+          ]
+        },
+        {
+          "roundIndex": 0,
+          "order": 3,
+          "sides": [
+            {
+              "contestantId": "7",
+              "scores": [
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                },
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                },
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                }
+              ],
+              "isWinner": false
+            },
+            {
+              "contestantId": "8",
+              "scores": [
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                },
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                },
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                }
+              ],
+              "isWinner": false
+            }
+          ]
+        },
+        {
+          "roundIndex": 1,
+          "order": 0,
+          "sides": [
+            {
+              "contestantId": "9",
+              "scores": [
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                },
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                },
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                }
+              ],
+              "isWinner": false
+            },
+            {
+              "contestantId": "10",
+              "scores": [
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                },
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                },
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                }
+              ],
+              "isWinner": false
+            }
+          ]
+        },
+        {
+          "roundIndex": 1,
+          "order": 1,
+          "sides": [
+            {
+              "contestantId": "11",
+              "scores": [
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                },
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                },
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                }
+              ],
+              "isWinner": false
+            },
+            {
+              "contestantId": "12",
+              "scores": [
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                },
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                },
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                }
+              ],
+              "isWinner": false
+            }
+          ]
+        },
+        {
+          "roundIndex": 2,
+          "order": 0,
+          "sides": [
+            {
+              "contestantId": "13",
+              "scores": [
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                },
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                },
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                }
+              ],
+              "isWinner": false
+            },
+            {
+              "contestantId": "14",
+              "scores": [
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                },
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                },
+                {
+                  "mainScore": "TBD",
+                  "subscore": "TBD"
+                }
+              ],
+              "isWinner": false
+            }
+          ]
+        }
+      ],
+      "contestants": {
+        "1": {
+          "entryStatus": "TBD",
+          "players": [
+            {
+              "title": "Player 1"
+            }
+          ]
+        },
+        "2": {
+          "entryStatus": "TBD",
+          "players": [
+            {
+              "title": "Player 2"
+            }
+          ]
+        },
+        "3": {
+          "entryStatus": "TBD",
+          "players": [
+            {
+              "title": "Player 3"
+            }
+          ]
+        },
+        "4": {
+          "entryStatus": "TBD",
+          "players": [
+            {
+              "title": "Player 4"
+            }
+          ]
+        },
+        "5": {
+          "entryStatus": "TBD",
+          "players": [
+            {
+              "title": "Player 5"
+            }
+          ]
+        },
+        "6": {
+          "entryStatus": "TBD",
+          "players": [
+            {
+              "title": "Player 6"
+            }
+          ]
+        },
+        "7": {
+          "entryStatus": "TBD",
+          "players": [
+            {
+              "title": "Player 7"
+            }
+          ]
+        },
+        "8": {
+          "entryStatus": "TBD",
+          "players": [
+            {
+              "title": "Player 8"
+            }
+          ]
+        },
+        "9": {
+          "entryStatus": "TBD",
+          "players": [
+            {
+              "title": "Winner TBD"
+            }
+          ]
+        },
+        "10": {
+          "entryStatus": "TBD",
+          "players": [
+            {
+              "title": "Winner TBD"
+            }
+          ]
+        },
+        "11": {
+          "entryStatus": "TBD",
+          "players": [
+            {
+              "title": "Winner TBD"
+            }
+          ]
+        },
+        "12": {
+          "entryStatus": "TBD",
+          "players": [
+            {
+              "title": "Winner TBD"
+            }
+          ]
+        },
+        "13": {
+          "entryStatus": "TBD",
+          "players": [
+            {
+              "title": "Winner TBD"
+            }
+          ]
+        },
+        "14": {
+          "entryStatus": "TBD",
+          "players": [
+            {
+              "title": "Winner TBD"
+            }
+          ]
+        }
+      }
     }
   }
 ]
