@@ -221,7 +221,7 @@ function Editjoin(){
         {selectedTournament && (
         <div>
           <h2>{selectedTournament.name} - Bracket</h2>
-          <Bracket data={selectedTournament.data} onUpdate = {addTournament}/>
+          <Bracket data={selectedTournament.data} onUpdate = {addTournament} numRounds = {numRounds}/>
         </div>
       )}
       </div>

@@ -51,62 +51,62 @@ app.post('/api/tournaments', (req, res) => {
   const rounds = [];
   const matches = [];
   const contestants = {};
-  let player = []
+  let player = [];
   let counter = 0;
   let roundIndex = 0;
   let orderCounter = 0;
   let playerId = 1;
+  
+  // Function to get contestant ID of the winner of a match from the previous round
+  const getWinnerId = (roundIndex, order) => {
+    return matches.find(match => match.roundIndex === roundIndex && match.order === order).sides[0].contestantId;
+  };
+  
   for (let i = numRounds; i > 0; i--) {
-    counter = 2**(i-1); //should match the number of matches for that round
-    //to push the number of matches
+    counter = 2 ** (i - 1); // should match the number of matches for that round
+    // to push the number of matches
     for (let j = counter; j > 0; j--) {
       const sides = []; // Reset sides array for each match
-      //some things need to happen twice per match
-      for (let twice = 0; twice < 2; twice++){
-        // player.push({title: `Player ${playerId}`});
-        if (roundIndex === 0){
+      // some things need to happen twice per match
+      for (let twice = 0; twice < 2; twice++) {
+        if (roundIndex === 0) {
+          // Only assign players for the first round
           player = [{ title: `Player ${playerId}` }];
+          const contestant = { entryStatus: "TBD", players: player };
+          contestants[playerId] = contestant; // store directly into contestants
+          sides.push({ contestantId: playerId.toString(), scores: [{ mainScore: "TBD", subscore: "TBD" }, { mainScore: "TBD", subscore: "TBD" }, { mainScore: "TBD", subscore: "TBD" }], isWinner: false }); // per contestant
+          playerId++;
+        } else {
+          // For subsequent rounds, reference winners from previous round
+          const previousRoundWinnerId = getWinnerId(roundIndex - 1, orderCounter * 2 + twice);
+          sides.push({ contestantId: previousRoundWinnerId, scores: [{ mainScore: "TBD", subscore: "TBD" }, { mainScore: "TBD", subscore: "TBD" }, { mainScore: "TBD", subscore: "TBD" }], isWinner: false });
         }
-        else{
-          player = [{ title: `Winner TBD` }];
-        }
-        const contestant = { entryStatus: "TBD", players: player };
-        const score = [{ mainScore: "TBD", subscore: "TBD" }, { mainScore: "TBD", subscore: "TBD" }, { mainScore: "TBD", subscore: "TBD" }]; // Reset score array for each side
-        // score.push({mainScore: "TBD", subscore: "TBD"});//could also add isWinner in here instead... see what's better later
-        contestants[playerId] = contestant;//store directly into contestants
-        sides.push({contestantId: playerId.toString(), scores: [...score], isWinner: false});//per contestant     
-        playerId ++;
-        // console.log(playerId);
       }
-      matches.push({ roundIndex: roundIndex, order: orderCounter, sides: sides});
-      // score.length = 0;
-      // side.length = 2;
-      //contestant.length = 0;
-      // player.length = 1;
-      orderCounter++;//per match
+      matches.push({ roundIndex: roundIndex, order: orderCounter, sides: sides });
+      orderCounter++; // per match
     }
-    //final
-    if(counter === 1){
+    // final
+    if (counter === 1) {
       rounds.push({ name: `Final` });
     }
-    //semifinal
-    else if(counter === 2){
+    // semifinal
+    else if (counter === 2) {
       rounds.push({ name: `Semifinal` });
     }
-    //quarterfinal
-    else if(counter === 4){
+    // quarterfinal
+    else if (counter === 4) {
       rounds.push({ name: `Quarterfinal` });
     }
-    //for -nd and -th
-    else if ((counter*2)%10 === 2) {
-      rounds.push({ name: `${counter*2}nd` });
+    // for -nd and -th
+    else if ((counter * 2) % 10 === 2) {
+      rounds.push({ name: `${counter * 2}nd` });
     }
-    //remaining rounds
-    else{
-      rounds.push({ name: `${counter*2}th` }); //Adjust if needed
+    // remaining rounds
+    else {
+      rounds.push({ name: `${counter * 2}th` }); // Adjust if needed
     }
-    roundIndex++; //increment roundIndex per round
-    orderCounter = 0;//reset orderCounter for each round
+    roundIndex++; // increment roundIndex per round
+    orderCounter = 0; // reset orderCounter for each round
   }
 
   const newTournament = {
