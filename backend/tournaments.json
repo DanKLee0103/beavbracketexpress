@@ -1,0 +1,84 @@
+[
+  {
+    "id": "14ecab31-5656-409c-a254-2055d45b302c",
+    "name": "lolol",
+    "tabs": [
+      {
+        "label": "schedule",
+        "key": 1
+      },
+      {
+        "label": "dfdfd",
+        "key": 2
+      },
+      {
+        "label": "lmlamdf",
+        "key": 3
+      },
+      {
+        "label": "smsdf",
+        "key": 4
+      },
+      {
+        "label": "lolol",
+        "key": 5
+      }
+    ]
+  },
+  {
+    "id": "e396c568-f134-4059-83ea-7d3a9d00593c",
+    "name": "a",
+    "tabs": [
+      {
+        "label": "schedule",
+        "key": 1
+      },
+      {
+        "label": "DS",
+        "key": 2
+      }
+    ]
+  },
+  {
+    "id": "b8ad2dbb-c346-471e-bbec-304ff2e569fa",
+    "name": "asdf",
+    "tabs": [
+      {
+        "label": "Schedule",
+        "key": 1
+      }
+    ]
+  },
+  {
+    "id": "57bba635-1799-4b0a-83bd-a1bad8d66f37",
+    "name": "joseph",
+    "tabs": [
+      {
+        "label": "schedule",
+        "key": 1
+      },
+      {
+        "label": "fdfd",
+        "key": 2
+      },
+      {
+        "label": "hello",
+        "key": 3
+      },
+      {
+        "label": "ofpkosd",
+        "key": 4
+      }
+    ]
+  },
+  {
+    "id": "5c905735-91f7-4542-99a6-6b6a61633636",
+    "name": "aaa",
+    "tabs": [
+      {
+        "label": "Schedule",
+        "key": 1
+      }
+    ]
+  }
+]
