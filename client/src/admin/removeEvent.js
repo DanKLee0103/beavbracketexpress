@@ -1,8 +1,15 @@
 import React, {useState} from 'react';
+import { Modal } from 'antd';
 
-function RemoveEvent(){
+function RemoveEvent( {id} ){
+
+
     return(
-        <div></div>
+        <div>
+            <Modal title = "Login" open = {true} centered = {true} onOk = {false} onCancel={false} okText = "Delete">
+                
+            </Modal>
+        </div>
     );
 }
 

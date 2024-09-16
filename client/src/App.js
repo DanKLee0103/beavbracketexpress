@@ -23,9 +23,6 @@ import VerifyTime from "./admin/verifytime";
 // import EditGoldBracket from './admin/editgoldbracket';
 
 function App() {
-  // if ('/admin' in Navigation){
-  //   Navigation = null;
-  // }
   return (
     <div className="App">
       <Router>
@@ -52,10 +49,10 @@ function App() {
           {/* For clients */}
            <Route path = "/" element = {<Homepage/>}/>
            <Route path = "/jointour" element = {<Jointour/>} id = "navreq"/>
-           <Route path = "/addtour/:tournamentName" element = {<Addtour/>} id = "navreq"/>
-           <Route path = "/addevent/:tournamentName" element = {<AddEvent/>}/>
-           <Route path = "/removeEvent/:tournamentName" element = {<RemoveEvent/>}/>
-           <Route path = "/verifytime/:tournamentName" element = {<VerifyTime/>}/>
+           <Route path = "/addtour/:id/:tab" element = {<Addtour/>} id = "navreq"/>
+           <Route path = "/addevent/:id" element = {<AddEvent/>}/>
+           <Route path = "/removeEvent/:id" element = {<RemoveEvent/>}/>
+           <Route path = "/verifytime/:id" element = {<VerifyTime/>}/>
           {/* // <Route path = "/contact" element = {<Contact/>} id = "navreq"/>
           // <Route path = "/clienttour/:id" element = {<Clienttour/>}/>  */}
         </Routes>

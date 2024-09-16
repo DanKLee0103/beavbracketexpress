@@ -1,62 +1,77 @@
 //For joining the tournament
-import React, {useState} from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { Modal, Button } from 'antd';
+import {DeleteOutlined} from '@ant-design/icons';
 import useSWR from 'swr';
-import '../App.css'
-import {Link} from 'react-router-dom'
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
-function Jointour(){
-    const { data: tournaments, error, mutate } = useSWR('/api/tournaments', fetcher);
-    const [name, setName] = useState('');
-    const [date, setDate] = useState('');
-  
-    if (error) return <div>Failed to load tournaments</div>;
-    if (!tournaments) return <div>Loading...</div>;
-  
-    const addTournament = async (e) => {
-      e.preventDefault();
-  
-      const newTournament = { name, date };
-      //update the local data
-      mutate(
-        '/api/tournaments',
-        [...tournaments, newTournament].sort((a, b) => new Date(a.date) - new Date(b.date)),
-        false
-      );
-  
-      const response = await fetch('/api/tournaments', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(newTournament),
+function JoinTour() {
+  const { data: tournaments, error, mutate } = useSWR('/api/tournaments', fetcher);
+  const [selectedTournamentId, setSelectedTournamentId] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  //Open modal with specific tournament ID
+  const openModal = (id) => {
+    setSelectedTournamentId(id);
+    setIsModalOpen(true);
+  };
+
+  //close modal
+  const closeModal = () => {
+    setSelectedTournamentId(null);
+    setIsModalOpen(false);
+  };
+
+  // Function to delete a tournament
+  const deleteTournament = async (id) => {
+    try {
+      await fetch(`/api/tournaments/${id}`, {
+        method: 'DELETE',
       });
-  
-      if (!response.ok) {
-        throw new Error('Failed to add tournament');
-      }
-  
-      //revalidate the SWR cache
+      // Revalidate SWR cache or update local state
       mutate('/api/tournaments');
-    };
-  
-    return (
-      <div>
-        <h1>Want To Join A Tournament?</h1>
-        <h3>Click on any of the tournaments below!</h3>
-        <ul>
-          {Array.isArray(tournaments) && tournaments
-            .sort((a, b) => new Date(a.date) - new Date(b.date))
-            .map((tournament) => (
-              <li id = "tournaments">
-                <Link to = {`/clienttour/${tournament.id}`} id = "edittournaments"> 
-                      {tournament.name} - ({new Date(tournament.startDate).toLocaleDateString('en-US', {timeZone: 'UTC'})} - 
-                      {new Date(tournament.endDate).toLocaleDateString('en-US', {timeZone: 'UTC'})})
-                </Link>
-              </li>
-            ))}
-        </ul>
-      </div>
-    );
+    } catch (error) {
+      console.error("Failed to delete tournament:", error);
+    }
+    setIsModalOpen(false);
+  };
+
+  return (
+    <div>
+      <h1>Want To Join A Tournament?</h1>
+      <h3>Click on any of the tournaments below!</h3>
+      <ul id="tournaments">
+        {Array.isArray(tournaments) && tournaments.map((tournament) => (
+          <li key={tournament.id}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}>
+            <Link to={`/addtour/${tournament.id}/schedule`} id="edittournaments">
+              <h1>{tournament.name}</h1>
+            </Link>
+            <Button onClick={() => openModal(tournament.id)} icon={<DeleteOutlined />}/>
+            {selectedTournamentId === tournament.id && (
+              <Modal
+                title="Proceed With Caution!!!"
+                open={isModalOpen}
+                centered={true}
+                okText="Delete"
+                okType = "danger"
+                onOk={()=>deleteTournament(tournament.id)}
+                onCancel={closeModal}
+              >
+                <p>Would you really like to delete this tournament?</p>
+              </Modal>
+            )}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 }
-  
-export default Jointour;
+
+export default JoinTour;

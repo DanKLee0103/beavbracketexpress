@@ -1,16 +1,24 @@
 //For the homepage
-import { ConfigProvider, Button, Flex } from "antd";
+import { ConfigProvider, Button, Flex, Spin } from "antd";
 import Navigation from '../components/navigation';
 import { Link } from 'react-router-dom';
 import $ from 'jquery';
 import '../App.css';
 import React, {useState, useEffect} from 'react';
 import { Modal } from 'antd';
+import {SyncOutlined} from '@ant-design/icons';
 import AddTour from '../admin/addtour';
 import { useNavigate } from 'react-router-dom';
+import useSWR from 'swr';
+import { v4 as uuidv4 } from 'uuid';
+// import ReactDOM from 'react-dom';
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+
+const fetcher = (url) => fetch(url).then((res) => res.json());
 
 function Homepage(){
-
+    const { data: tournaments, error, mutate } = useSWR('/api/tournaments', fetcher);
     const [joinButtonType, setJoinButtonType] = useState('default');
     const [addButtonType, setAddButtonType] = useState('default');
 
@@ -60,21 +68,69 @@ function Homepage(){
 
         $('#joinTourButton').on('mouseenter',function() {
             setAddButtonType('primary')
-        });
+         });
          
-        $('#joinTourButton').on('mouseleave',function() {
+         $('#joinTourButton').on('mouseleave',function() {
             setAddButtonType('default')
-        });
+         });
+        
 
     }, []);
 
-    const createTour = () => {
-        Navigate(`/addtour/${tournamentName}`);
+    // Function for submitting the tournament creation
+    const createTour = async (e) => {       
+        e.preventDefault();
+    
+        const newTournament = {
+            id: uuidv4(),
+            name: tournamentName,
+            tabs: [{label: "Schedule", key: 1}]};
+      
+        //Reval the SWR cache
         setCreateModalOpen(false);
-    }
+
+     //Dynamically create a mountNode for the spinner
+     const mountNode = document.createElement('div');
+     document.body.appendChild(mountNode); //Append it to the body
+     const root = createRoot(mountNode); 
+ 
+     //Show the spinner while the request is in progress (the request needs some time before navigation)
+     root.render(
+        <Spin indicator = {<SyncOutlined spin/>} style = {{position: 'fixed', right: '51%', top: '44%', left: '49%', bottom: '56%' }} size="large"></Spin>,
+        mountNode
+     );
+     
+     try {
+         // Submit the new tournament
+         const response = await fetch('/api/tournaments', {
+             method: 'POST',
+             headers: { 'Content-Type': 'application/json' },
+             body: JSON.stringify(newTournament),
+         });
+ 
+         if (!response.ok) {
+             throw new Error('Failed to add tournament');
+         }
+     } 
+     catch (error) {
+         console.error(error);
+     } 
+     finally{
+        // Set a short delay before navigating to ensure spinner is shown
+        setTimeout(() => {
+            // Remove the spinner
+            root.unmount();
+            document.body.removeChild(mountNode); // Clean up the DOM
+
+            // Navigate to the new page
+            Navigate(`/addtour/${newTournament.id}/Schedule`);
+        }, 2000); // Delay of 2 seconds to show the spinner
+
+    }}
 
     return (
-        <div>
+        <div> 
+            <label style={{fontSize: 1}}>joseph kim</label>
             <header>
                 <h1>Welcome to Beaver Brackets!</h1>
                 <p>Oregon State University Tennis Club's Official Website</p>
@@ -97,8 +153,7 @@ function Homepage(){
             <Modal open={login && createModalOpen} onCancel={createOk} okText = "Create Tournament" onOk={createTour} centered = {true}><h1>Enter Tournament Name Below</h1>
                 <input required = {true} type = "text" placeholder = "Tournament Name" value = {tournamentName} onChange={(e) => setTournamentName(e.target.value)}/>
             </Modal>
-        </div>
-        
+        </div>     
     )
 }
 
