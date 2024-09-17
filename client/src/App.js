@@ -27,13 +27,13 @@ function App() {
     <div className="App">
       <Router>
         <header class = "App-header">
-                <div className = "beavimage">
-                  <img className = "left" src={beavimage} />
-                  <img className = "right" src={beavimage} />
-                </div>
-                  <h1 id = "header-link">
-                    <Link to="/" id="navreq">Beaver Brackets</Link>
-                  </h1>
+        <div className="header-container">
+  <img className="beaver-image left" src={beavimage} alt="Beaver Image" />
+  <h1 id="header-link">
+    <Link to="/" id="navreq">Beaver Brackets</Link>
+  </h1>
+  <img className="beaver-image right" src={beavimage} alt="Beaver Image" />
+</div>
                 <head><Navigation/></head>
         </header>        
         <Routes>

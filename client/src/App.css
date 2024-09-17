@@ -14,6 +14,7 @@
   /* flex-direction: ; */
   align-items: center;
   justify-content: center; 
+  padding: 10px;
   font-size: calc(10px + 2vmin);
   text-decoration-style: none;
   top: 0;
@@ -36,25 +37,45 @@
 
 /* This is for the header link when header is clicked */
 #header-link { 
-  margin-top: 20px;
-  height: 40px;
+  margin: 0; /* Remove default margin */
+  text-align: center; /* Center text horizontally */
+  /* flex: 1; Allow text to take available space */
 }
 
-.beavimage {
-  height: 90px;
-  padding-top: 10px;
-  .left {
-    position: absolute; 
-    left: 500px;
-  }
-  .right {
-    position: absolute; 
-    right: 500px;
-  }
-  img {
-    height: 100px; /* Set the height for the images */
-  }
+.header-container {
+  display: flex;
+  align-items: center; /* Center items vertically */
+  justify-content: center; /* Space items out horizontally */
+  /* padding: 0 20px; Add horizontal padding if needed */
+  background-color: lightgreen;
 }
+
+.beaver-image {
+  height: 100px; /* Maintain aspect ratio */
+  padding: 20px;
+}
+
+/* .beavimage {
+  width: 50px; Adjust width as needed
+  height: auto; Maintain aspect ratio */
+  /* display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 90px;
+  padding: 10px; Adjust padding as needed */
+/* } */
+
+/* .beavimage .left {
+  position: absolute; 
+  left: 500px;
+}
+.beavimage .right {
+  position: absolute; 
+  right: 500px;
+} */
+/* .beavimage img {
+  height: 100px; Set the height for the images
+} */
 
 #navreq{
   color: orange;
@@ -88,20 +109,17 @@
 .button{
   list-style-type: none;
   padding: 0;
-  .custom-button{
-    display: block;
-    font-size: larger;
-    align-content: center;
-    width: 300px;
-    height: 100px;
-    text-decoration: none;
-    margin: 50px;
-  }
 }
 
-
-
-
+.custom-button{
+  display: flex;
+  font-size: larger;
+  align-content: center;
+  width: 300px;
+  height: 100px;
+  text-decoration: none;
+  margin: 50px;
+}
 
 
 
