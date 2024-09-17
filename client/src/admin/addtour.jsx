@@ -1,4 +1,5 @@
 import React, { useState, useEffect} from 'react';
+import '../App.css';
 import useSWR from 'swr';
 import { useParams, useNavigate  } from 'react-router-dom';
 import { Dropdown, Space, Tabs, Modal } from 'antd';

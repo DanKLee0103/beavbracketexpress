@@ -1,0 +1,36 @@
+/* For divider color */
+#borderon{
+    border-color: '#ffa500';
+}
+
+#borderoff{
+    border-color: white;
+}
+
+#nameinput{
+    width: 400px; 
+    margin-bottom: 10px; 
+    justify-content: 'center';
+}
+
+#eventtype {
+    width: 400px;
+    height: 200px;
+    font-size: 25px;
+}
+
+#downbutton {
+    font-size: 40px;
+}
+
+#buttonGroup {
+    justify-content: 'center'; 
+    align-items: 'center'; 
+    margin-top: 10px; 
+    margin-bottom: 10px;
+}
+
+#submitbutton{
+    width: 100px; 
+    font-size: 16px;
+}

@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import './addeventcomp/addevent.css';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Form, Divider, Input, Button, Upload, message } from 'antd';
 import { UploadOutlined} from '@ant-design/icons';
@@ -100,7 +101,7 @@ function AddEvent(){
                 // onFinishFailed={submitFailed}
                 autoComplete="off"
             >
-                <Divider style={{ borderColor: '#ffa500' }}>Event Name</Divider>
+                <Divider id = 'borderon'> Event Name</Divider>
                 <Form.Item
                     name="eventName"
                     rules={[{ required: true, message: 'Event name cannot be empty!' }]}
@@ -108,20 +109,20 @@ function AddEvent(){
                     <Input
                     size="large"
                     placeholder="Event Name"
-                    style={{ width: 400, marginBottom: 10, justifyContent: 'center' }}
+                    id = 'nameinput'
                     value={eventName}
                     onChange={(e) => setEventName(e.target.value)}
                     />
                 </Form.Item>
 
-                <Divider style={{ borderColor: 'white' }}>
-                    <HiChevronDoubleDown style={{ fontSize: 40 }} />
+                <Divider id = 'borderoff'>
+                    <HiChevronDoubleDown id = 'downbutton' />
                 </Divider>
-                <Divider style={{ borderColor: '#ffa500' }}>Event Type</Divider>
+                <Divider id = 'borderon'>Event Type</Divider>
                 <Form.Item>
-                    <Button.Group style={{ justifyContent: 'center', alignItems: 'center', marginTop: 10, marginBottom: 10 }}>
+                    <Button.Group id = 'buttonGroup'>
                     <Button
-                        style={{ width: 400, height: 200, fontSize: 25 }}
+                        id = 'eventtype'
                         onClick={() => {
                         setSelectedButton1(true);
                         setSelectedButton2(false);
@@ -132,7 +133,7 @@ function AddEvent(){
                         Single Elimination
                     </Button>
                     <Button
-                        style={{ width: 400, height: 200, fontSize: 25 }}
+                        id = 'eventtype'
                         onClick={() => {
                         setSelectedButton2(true);
                         setSelectedButton1(false);
@@ -143,7 +144,7 @@ function AddEvent(){
                         Double Elimination
                     </Button>
                     <Button
-                        style={{ width: 400, height: 200, fontSize: 25 }}
+                        id = 'eventtype'
                         onClick={() => {
                         setSelectedButton3(true);
                         setSelectedButton2(false);
@@ -156,10 +157,10 @@ function AddEvent(){
                     </Button.Group>
                 </Form.Item>
 
-                <Divider style={{ borderColor: 'white' }}>
-                    <HiChevronDoubleDown style={{ fontSize: 40 }} />
+                <Divider id = 'borderoff'>
+                    <HiChevronDoubleDown id = 'downbutton' />
                 </Divider>
-                <Divider style={{ borderColor: '#ffa500' }}>
+                <Divider id = 'borderon'>
                     Players List (CSV/Excel): {filename || 'No file chosen'}
                 </Divider>
                 <Form.Item>
@@ -168,11 +169,11 @@ function AddEvent(){
                     </Upload>
                 </Form.Item>
 
-                <Divider style={{ borderColor: 'white' }}>
-                    <HiChevronDoubleDown style={{ fontSize: 40 }} />
+                <Divider id = 'borderoff'>
+                    <HiChevronDoubleDown id = 'downbutton' />
                 </Divider>
                 <Form.Item >
-                    <Button style={{ width: 100, fontSize: 16 }} type="primary" htmlType="submit" onClick={createEvent}>
+                    <Button id = 'submitbutton' type="primary" htmlType="submit" onClick={createEvent}>
                     Submit
                     </Button>
                 </Form.Item>

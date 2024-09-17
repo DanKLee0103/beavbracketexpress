@@ -34,6 +34,28 @@
   color: #61dafb;
 }
 
+/* This is for the header link when header is clicked */
+#header-link { 
+  margin-top: 20px;
+  height: 40px;
+}
+
+.beavimage {
+  height: 90px;
+  padding-top: 10px;
+  .left {
+    position: absolute; 
+    left: 500px;
+  }
+  .right {
+    position: absolute; 
+    right: 500px;
+  }
+  img {
+    height: 100px; /* Set the height for the images */
+  }
+}
+
 #navreq{
   color: orange;
   text-decoration: none;
@@ -54,48 +76,7 @@
   text-align: center;
 }
 
-#editforms{
-  padding-right: 10px;
-}
-
-#bracket{
-  position: relative;
-  display: inline-block;
-  /* text-align: center; */
-  /* align-items: center; */
-}
-
-/*This is for the editform for the bracket*/
-#bracketform{
-  max-width: min-content;
-  text-align: center;
-  display: inline-block;
-}
-
-/*To make textboxes smaller for bracketlabel*/
-#bracketlabelscore{
-  padding-right: 10px;
-}
-
-/*This is for the editform for the bracket*/
-.formwrapper {
-  position: relative;
-  display: inline-block;
-}
-
-/*For the x-symbol on top right of the form*/
-.close {
-    float:right;
-    size: 50px;
-    color: #909090;
-    text-decoration: none;
-}
-
-/*For the x-symbol on top right of the form*/
-.close:hover{
-    color: #686868;
-}
-
+/* For the join and create buttons at homepage */
 .container {
   display: flex;
   justify-content: center;
@@ -103,6 +84,7 @@
   height: 100%;
 }
 
+/* For the join and create buttons at homepage */
 .button{
   list-style-type: none;
   padding: 0;
@@ -117,7 +99,55 @@
   }
 }
 
-#navbar{
+
+
+
+
+
+
+/* #editforms{
+  padding-right: 10px;
+} */
+
+/* #bracket{
+  position: relative;
+  display: inline-block;
+  /* text-align: center; */
+  /* align-items: center; 
+}
+
+/*This is for the editform for the bracket*/
+/* #bracketform{
+  max-width: min-content;
+  text-align: center;
+  display: inline-block;
+} */
+
+/*To make textboxes smaller for bracketlabel*/
+/* #bracketlabelscore{
+  padding-right: 10px; 
+}*/
+
+/*This is for the editform for the bracket*/
+/* .formwrapper {
+  position: relative;
+  display: inline-block;
+} */
+
+/*For the x-symbol on top right of the form*/
+/* .close {
+    float:right;
+    size: 50px;
+    color: #909090;
+    text-decoration: none;
+} */
+
+/*For the x-symbol on top right of the form*/
+/* .close:hover{
+    color: #686868;
+} */
+
+/* #navbar{
   width: 100px;
   justify-content:center;
-}
+} */
