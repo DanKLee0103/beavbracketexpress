@@ -80,5 +80,45 @@
         "key": 1
       }
     ]
+  },
+  {
+    "id": "fc670528-1c07-40d5-8cf2-22ffb38b9e2d",
+    "name": "lul",
+    "tabs": [
+      {
+        "label": "Schedule",
+        "key": 1
+      }
+    ]
+  },
+  {
+    "id": "91b5d87e-35ed-4294-94bb-cecfd03d47bf",
+    "name": "loppq",
+    "tabs": [
+      {
+        "label": "Schedule",
+        "key": 1
+      }
+    ]
+  },
+  {
+    "id": "424b4766-987e-4fca-b519-03311d3f20fb",
+    "name": "sad",
+    "tabs": [
+      {
+        "label": "Schedule",
+        "key": 1
+      }
+    ]
+  },
+  {
+    "id": "9195e299-effd-4ff4-a7d5-223bc7a7240a",
+    "name": "iods",
+    "tabs": [
+      {
+        "label": "Schedule",
+        "key": 1
+      }
+    ]
   }
 ]

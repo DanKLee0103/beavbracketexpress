@@ -116,15 +116,13 @@ function Homepage(){
          console.error(error);
      } 
      finally{
-        // Set a short delay before navigating to ensure spinner is shown
+        //set a short delay before navigating to ensure spinner is shown
         setTimeout(() => {
-            // Remove the spinner
+            //remove the spinner
             root.unmount();
             document.body.removeChild(mountNode); // Clean up the DOM
-
-            // Navigate to the new page
             Navigate(`/addtour/${newTournament.id}/Schedule`);
-        }, 2000); // Delay of 2 seconds to show the spinner
+        }, 2000); //2 seconds to show the spinner
 
     }}
 
