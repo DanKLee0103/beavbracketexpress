@@ -84,7 +84,7 @@ function Homepage(){
         const newTournament = {
             id: uuidv4(),
             name: tournamentName,
-            tabs: [{label: "Schedule", key: 1}]};
+            tabs: [{label: "Schedule", key: '1'}]};
       
         //Reval the SWR cache
         setCreateModalOpen(false);
@@ -120,7 +120,7 @@ function Homepage(){
         setTimeout(() => {
             //remove the spinner
             root.unmount();
-            document.body.removeChild(mountNode); // Clean up the DOM
+            document.body.removeChild(mountNode); //clean dom
             Navigate(`/addtour/${newTournament.id}/Schedule`);
         }, 2000); //2 seconds to show the spinner
 
@@ -134,7 +134,6 @@ function Homepage(){
                 <p>Oregon State University Tennis Club's Official Website</p>
             </header>
             
-            {/* <Flex justify='center' align='center'> */}
             <div class = 'container'>
             <ul className='button'>
                 <Button className='custom-button' id = 'createTourButton' type = {joinButtonType} onClick = {setCreateTrue} shape = 'round'>Create a tournament</Button>

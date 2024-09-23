@@ -1,5 +1,8 @@
 .App {
   text-align: center;
+  flex-direction: column;
+  min-height: 100vh;
+  display: flex;
 }
 
 .App-logo {
@@ -20,15 +23,17 @@
   top: 0;
 }
 
+.App-main {
+  flex: 1; /* This allows the main content to grow and push the footer down */
+}
+
 .App-footer {
   background-color: orangered;
   display: flex;
   align-items: center;
   justify-content: center; 
   width: 100%;
-  bottom: 0;
   height: 100px;
-  position:absolute;
 }
 
 .App-link {
@@ -55,32 +60,9 @@
   padding: 20px;
 }
 
-/* .beavimage {
-  width: 50px; Adjust width as needed
-  height: auto; Maintain aspect ratio */
-  /* display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 90px;
-  padding: 10px; Adjust padding as needed */
-/* } */
-
-/* .beavimage .left {
-  position: absolute; 
-  left: 500px;
-}
-.beavimage .right {
-  position: absolute; 
-  right: 500px;
-} */
-/* .beavimage img {
-  height: 100px; Set the height for the images
-} */
-
 #navreq{
   color: orange;
   text-decoration: none;
-  text-decoration-style: none;
 }
 
 #tournaments{
@@ -121,7 +103,13 @@
   margin: 50px;
 }
 
-
+#dropdown {
+  position: fixed;
+  top: 70px; 
+  right: 200px; 
+  z-index: 1000; 
+  font-size: 20px;
+}
 
 /* #editforms{
   padding-right: 10px;

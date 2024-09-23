@@ -9,33 +9,23 @@ import Homepage from './client/homepage';
 import Jointour from './client/jointour';
 import Addtour from './admin/addtour';
 import AddEvent from './admin/addevent';
-import RemoveEvent from "./admin/removeEvent";
 import VerifyTime from "./admin/verifytime";
-// import Editjoin from './admin/editjoin';
-// import Admin from './admin/admin'
-// import Edittour from './admin/edittour';
-// import Contact from './client/contact';
-// import Clienttour from './client/clienttour';
-// import Schedule from './admin/schedule';
-// import PoolPlay from './admin/poolplay';
-// import EditBronzeBracket from './admin/editbronzebracket';
-// import EditSilverBracket from './admin/editsilverbracket';
-// import EditGoldBracket from './admin/editgoldbracket';
 
 function App() {
   return (
     <div className="App">
       <Router>
         <header class = "App-header">
-        <div className="header-container">
-  <img className="beaver-image left" src={beavimage} alt="Beaver Image" />
-  <h1 id="header-link">
-    <Link to="/" id="navreq">Beaver Brackets</Link>
-  </h1>
-  <img className="beaver-image right" src={beavimage} alt="Beaver Image" />
-</div>
-                <head><Navigation/></head>
-        </header>        
+              <div className="header-container">
+                <img className="beaver-image left" src={beavimage} alt="Beaver Image" />
+                <h1 id="header-link">
+                  <Link to="/" id="navreq">Beaver Brackets</Link>
+                </h1>
+                <img className="beaver-image right" src={beavimage} alt="Beaver Image" />
+              </div>
+              <head><Navigation/></head>
+        </header> 
+        <main class="App-main">   
         <Routes>
           {/* For admin side */}
           {/* <Route path = "/editjoin" element = {<Editjoin/>}/>
@@ -51,11 +41,11 @@ function App() {
            <Route path = "/jointour" element = {<Jointour/>} id = "navreq"/>
            <Route path = "/addtour/:id/:tab" element = {<Addtour/>} id = "navreq"/>
            <Route path = "/addevent/:id" element = {<AddEvent/>}/>
-           <Route path = "/removeEvent/:id" element = {<RemoveEvent/>}/>
            <Route path = "/verifytime/:id" element = {<VerifyTime/>}/>
           {/* // <Route path = "/contact" element = {<Contact/>} id = "navreq"/>
           // <Route path = "/clienttour/:id" element = {<Clienttour/>}/>  */}
         </Routes>
+        </main>    
         <footer class = "App-footer"><h1><Link to = "/" id = "navreq">Beaver Brackets</Link></h1> </footer>
       </Router>
     </div>

@@ -2,9 +2,9 @@ import React, { useState, useEffect} from 'react';
 import '../App.css';
 import useSWR from 'swr';
 import { useParams, useNavigate  } from 'react-router-dom';
-import { Dropdown, Space, Tabs, Modal } from 'antd';
-import { DownOutlined } from '@ant-design/icons';
-import RemoveEvent from './removeEvent';
+import { Dropdown, Space, Tabs, Modal, Spin } from 'antd';
+import { DownOutlined, SyncOutlined } from '@ant-design/icons';
+import { createRoot } from "react-dom/client";
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
@@ -17,32 +17,70 @@ function AddTour({tabName}) {
   const Navigate = useNavigate();
 
   const [openModal, setOpenModal] = useState(false);
-  const [currOption, setCurrOption] = useState(tab); //for current option pointer
-  const [deletekey, setDeleteKey] = useState();
-  const findtab = tournament?.tabs.find(tabs => tabs.label === tab);
+  const [currOption, setCurrOption] = useState(tab.label); //for current option pointer
+  const [deletekey, setDeleteKey] = useState('1');
+  // const findtab = tournament?.tabs.find(tabs => tabs.label === tab);
+
+  //to make sure page resets properly to default once reloaded
+  useEffect(() => {
+    const findtab = tournament?.tabs.find(tabs => tabs.label === tab);
+    if (findtab) {
+      setDeleteKey(findtab.key);
+      setCurrOption(findtab.label);
+  
+      // Only navigate if the current URL doesn't already match the desired tab
+      if (tab !== findtab.label) {
+        Navigate(`/addtour/${id}/${findtab.label}`);
+      }
+    }
+  }, [tab, tournament]);
 
   const removeEvent = async (e) => {       
     e.preventDefault();
-    if (deletekey === 1){
+    console.log(deletekey)
+    if (deletekey === '1'){
       setOpenModal(false);
       return;
     }
     for (let i = deletekey-1; i<tournament.tabs.length; i++) {
       tournament.tabs[i].key -= 1
+      tournament.tabs[i].key = tournament.tabs[i].key.toString();
     }
 
     tournament.tabs = tournament.tabs.filter(tabs => tabs.label !== currOption)
     
-    const response = await fetch(`/api/tournaments/${id}`, {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ tabs: tournament.tabs }),
-      });
+     //create a mountNode for the spinner
+     const mountNode = document.createElement('div');
+     document.body.appendChild(mountNode); //Append it to the body
+     const root = createRoot(mountNode); 
+ 
+     //Show the spinner while the request is in progress (the request needs some time before navigation)
+     root.render(
+        <Spin indicator = {<SyncOutlined spin/>} style = {{position: 'fixed', right: '51%', top: '44%', left: '49%', bottom: '56%' }} size="large"></Spin>,
+        mountNode
+     );
+     try{
+      const response = await fetch(`/api/tournaments/${id}`, {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ tabs: tournament.tabs }),
+        });
 
-    if (!response.ok) {
-        throw new Error('Failed to add new tab');
+      if (!response.ok) {
+          throw new Error('Failed to add new tab');
+      }
     }
-
+    catch (error) {
+      console.error(error);
+    } 
+    finally{
+     //set a short delay before navigating to ensure spinner is shown
+      setTimeout(() => {
+         //remove the spinner
+         root.unmount();
+         document.body.removeChild(mountNode);
+      }, 2000); //2 seconds to show the spinner
+    }
     setCurrOption('Schedule');
     Navigate(`/addtour/${id}/Schedule`);
     setOpenModal(false);
@@ -83,10 +121,10 @@ function AddTour({tabName}) {
     <div>
       {/* Display tournament name */}
       <h1 style={{ textAlign: 'left', paddingLeft: '100px' }}>
-        {tournament ? (findtab?` ${tournament.name}: ${currOption}`: 'Tab not found') : 'Tournament not found'}
+        {tournament ? (tournament?.tabs.find(tabs => tabs.label === tab)?` ${tournament.name}: ${currOption}`: 'Tab not found') : 'Tournament not found'}
       </h1>
       
-      <a style={{ position: 'absolute', top: 40, right: 200 }}>
+      <a id = 'dropdown'>
         <Dropdown placement="bottom" menu={{ items }}>
           <a onClick={(e) => e.preventDefault()}>
             <Space>
@@ -99,8 +137,9 @@ function AddTour({tabName}) {
       <Tabs
         tabBarStyle = {{height: 50}}
         style={{ position: 'absolute', bottom: 110, left: 100 }}
-        defaultActiveKey={1}
-        // activeKey={findtab? findtab.key: null}
+        // defaultActiveKey={'1'}
+        activeKey={currOption? (tournament.tabs.find(t => t.label === currOption)?.key) : '1'}
+
         type="card"
         size="large"
         items = {tournament?.tabs.map((option) => ({
@@ -108,8 +147,8 @@ function AddTour({tabName}) {
           key: option.key,
           children: `Content for ${option.label}`,
         }))}
-        onTabClick = {(key)=>{
-          const selectedTab = tournament.tabs.find((tab, idx) => idx+1 === parseInt(key));
+        onChange = {(key)=>{
+          const selectedTab = tournament.tabs.find(t => t.key === key);
           if(selectedTab){
             const tablabel = selectedTab.label;
             setDeleteKey(selectedTab.key)

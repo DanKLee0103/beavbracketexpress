@@ -6,6 +6,8 @@ import { UploadOutlined} from '@ant-design/icons';
 import { HiChevronDoubleDown } from "react-icons/hi";
 import AddTour from './addtour';
 import useSWR from 'swr';
+import MakeBracket from '../components/bracket';
+import Controller from './addeventcomp/controller';
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
@@ -17,10 +19,12 @@ function AddEvent(){
     const [filename, setFileName] = useState('')
     const [fileData, setFileData] = useState(null) //to store file contents in a state
 
-    const [eventName, setEventName] = useState('')
-    const [selectedButton1, setSelectedButton1] = useState(false)
-    const [selectedButton2, setSelectedButton2] = useState(false)
-    const [selectedButton3, setSelectedButton3] = useState(false)
+    const [eventName, setEventName] = useState('');
+    const [eventType, setEventType] = useState('');
+    const [fileRead, setFileRead] = useState(false);
+    // const [selectSingle, setSingle] = useState(false)
+    // const [selectDouble, setDouble] = useState(false)
+    // const [selectPool, setPool] = useState(false)
 
     const props = {
         name: 'file',
@@ -41,8 +45,9 @@ function AddEvent(){
           const reader = new FileReader();
           reader.onload = (e) => {
             const fileContents = e.target.result;
+            console.log(fileContents)
             setFileData(fileContents); //store file contents in state
-            console.log(fileContents); //this is just to make sure it went through (delete later)
+            setFileRead(true);
           };
     
           reader.readAsText(file); //For CSV files for now... Excel, we should figure out later
@@ -59,12 +64,20 @@ function AddEvent(){
     const createEvent = async (e) => {       
         e.preventDefault();
         const tab = tournament.tabs.find(tabs => tabs.label === eventName);
+        const data = <MakeBracket/>
         //what do I want for the data of a new tab? depends on single, double, or pool
-        const newTab = {label: eventName, key: tournament.tabs.length+1}; // type: , data: also need to be a part of a newTab
+        const newTab = {label: eventName, key: (tournament.tabs.length + 1).toString(), type: eventType, data: data}; //type: , data: also need to be a part of a newTab
         
         //if tab is found (already exists)
-        if(tab !== undefined || eventName == ''){
-            Navigate(`/addtour/${id}/schedule`);
+        if(tab !== undefined){
+            message.error("Error! Tab already exists!");
+            Navigate(`/addtour/${id}/Schedule`);
+            return;
+        }
+
+        if(eventName === '' || eventType === '' || fileRead === false){
+            message.error("Error! Event Name, Type, or File Not Selected!");
+            Navigate(`/addtour/${id}/Schedule`);
             return;
         }
 
@@ -80,16 +93,19 @@ function AddEvent(){
             throw new Error('Failed to add new tab');
         }
 
-        Navigate(`/addtour/${id}/schedule`);
+        Navigate(`/addtour/${id}/Schedule`);
         
         return (
-            <AddTour tabName={eventName}/>
+            <div>
+                <AddTour tabName={eventName} />
+                <Controller eventType={eventType} data={}/>
+            </div>
             //(eventName and eventtype, along with the data in the csv or excel file parsed onto bracket if single or double elim)
         );
 
     };
 
-    if (error) return <div>Failed to load tournaments</div>;
+    if (error) return <div>Failed to load events</div>;
     if (!tournaments) return <div>Loading...</div>;
 
     return(
@@ -124,33 +140,27 @@ function AddEvent(){
                     <Button
                         id = 'eventtype'
                         onClick={() => {
-                        setSelectedButton1(true);
-                        setSelectedButton2(false);
-                        setSelectedButton3(false);
+                            setEventType('single');
                         }}
-                        type={selectedButton1 ? 'primary' : 'default'}
+                        type={eventType === 'single' ? 'primary' : 'default'}
                     >
                         Single Elimination
                     </Button>
                     <Button
                         id = 'eventtype'
                         onClick={() => {
-                        setSelectedButton2(true);
-                        setSelectedButton1(false);
-                        setSelectedButton3(false);
+                            setEventType('double');
                         }}
-                        type={selectedButton2 ? 'primary' : 'default'}
+                        type={eventType === 'double' ? 'primary' : 'default'}
                     >
                         Double Elimination
                     </Button>
                     <Button
                         id = 'eventtype'
                         onClick={() => {
-                        setSelectedButton3(true);
-                        setSelectedButton2(false);
-                        setSelectedButton1(false);
+                            setEventType('pool');
                         }}
-                        type={selectedButton3 ? 'primary' : 'default'}
+                        type={eventType === 'pool' ? 'primary' : 'default'}
                     >
                         Pool Play
                     </Button>
